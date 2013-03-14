@@ -1,5 +1,5 @@
 "
-" /home/leafy/.vimrc - leafy vimrc
+" /home/zmattor/.vimrc - Crriten's vimrc (inspired heavily from Leafy's)
 " 
 
 execute pathogen#infect()
