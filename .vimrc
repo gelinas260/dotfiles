@@ -2,6 +2,7 @@
 " /home/zmattor/.vimrc - Crriten's vimrc (inspired heavily from Leafy's)
 " 
 
+set noswapfile
 execute pathogen#infect()
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
@@ -23,7 +24,6 @@ endif
 "set showcmd		" Show (partial) command in status line.
 set showmatch!		" Show matching brackets. // bug sharp braces...
 set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
 set smartindent
 set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
@@ -32,9 +32,9 @@ set mouse=a		" Enable mouse usage (all modes)
 
 set ruler			" Show ruler displaying line number and col number and progress bottom right
 set noexpandtab
-set shiftwidth=4	
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set number
 set hlsearch
 "set wildmode=longest,list,full
@@ -45,14 +45,6 @@ if $TERM == "screen" || $TERM == "xterm-256color" || $TERM == "screen-256color" 
   set t_Co=256
 endif
  
-let mapleader = "\<space>"						
-
-" Quicksave
-map <F2> !mksession! :~/.vim_session<CR>
-
-" Quickload
-map <F3> :source ~/.vim_session<CR>
-
 " Tab controls
 nmap <C-h> :tabp<CR>
 nmap <C-l> :tabn<CR>
@@ -64,11 +56,6 @@ nmap <F8> :let @/=''<CR>
 " this is useful if you are pasting a URL for command line wget
 nmap <F7> :%s/&/\\&/g<CR>
 
-" <C-O> is Ctrl-P in file mode. <C-P> is Ctrl-P in buffer mode. Reversed
-" because <C-O> maps conceptually to 'open' and the plugin name is less useful.
-let g:ctrlp_map = '<C-O>'
-nmap <C-P> :CtrlPBuffer<CR>
-
 " Backspace in normal mode is basically quit, but if this is the last window open 
 " and we accidentally close the window, we save session so that we can quickload 
 " all the open buffers if it was a mistake. 
@@ -77,6 +64,13 @@ nnoremap <BS> :mksession! ~/.vim_session<CR>:quit<CR>
 " Enter in normal mode is save. Pretty boss.
 nmap <CR> :write<CR>
 
+" Makes the tab key happy
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
 " Unmap mouse buttons so when I click to focus PuTTY I don't move my cursor. Mouse
 " functions still enabled so scrolling works as intended, and other mouse buttons may
 " be bound in the future.
@@ -84,8 +78,15 @@ noremap! <LeftMouse> <nop>
 noremap! <2-LeftMouse> <nop>
 noremap! <RightMouse> <nop>
 
-" Highlight characters over 80 columns
-match DiffText '\%>80v.\+'
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
 
 " Load baller theme
 source ~/.vim/colors/zenburn.vim
