@@ -71,12 +71,11 @@ inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-" Unmap mouse buttons so when I click to focus PuTTY I don't move my cursor. Mouse
-" functions still enabled so scrolling works as intended, and other mouse buttons may
-" be bound in the future.
-noremap! <LeftMouse> <nop>
-noremap! <2-LeftMouse> <nop>
-noremap! <RightMouse> <nop>
+" Start NERDTree
+autocmd vimenter * NERDTree
+
+" Close if NERDTree is last buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 function! NumberToggle()
   if(&relativenumber == 1)
