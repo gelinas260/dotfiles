@@ -72,7 +72,7 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 " Start NERDTree
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 
 " Close if NERDTree is last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
