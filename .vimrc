@@ -59,7 +59,7 @@ nmap <F7> :%s/&/\\&/g<CR>
 " Backspace in normal mode is basically quit, but if this is the last window open 
 " and we accidentally close the window, we save session so that we can quickload 
 " all the open buffers if it was a mistake. 
-nnoremap <BS> :mksession! ~/.vim_session<CR>:quit<CR>
+" nnoremap <BS> :mksession! ~/.vim_session<CR>:quit<CR>
 
 " Enter in normal mode is save. Pretty boss.
 nmap <CR> :write<CR>
