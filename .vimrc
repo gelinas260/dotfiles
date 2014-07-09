@@ -1,7 +1,6 @@
 "
 " /home/zmattor/.vimrc - Crriten's vimrc (inspired heavily from Leafy's)
-" 
-
+"
 set noswapfile
 execute pathogen#infect()
 
@@ -21,17 +20,17 @@ endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-"set showcmd		" Show (partial) command in status line.
-set showmatch!		" Show matching brackets. // bug sharp braces...
-set ignorecase		" Do case insensitive matching
+"set showcmd    " Show (partial) command in status line.
+set showmatch!    " Show matching brackets. // bug sharp braces...
+set ignorecase    " Do case insensitive matching
 set smartindent
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
+set incsearch   " Incremental search
+set autowrite   " Automatically save before commands like :next and :make
 set hidden             " Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
+set mouse=a   " Enable mouse usage (all modes)
 
-set ruler			" Show ruler displaying line number and col number and progress bottom right
-set noexpandtab
+set ruler     " Show ruler displaying line number and col number and progress bottom right
+set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
@@ -40,6 +39,10 @@ set hlsearch
 "set wildmode=longest,list,full
 "set wildmenu
 set backspace=2
+
+" Show trailing whitespace
+set listchars=trail:⋅
+set list
 
 if $TERM == "screen" || $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal" || 1
   set t_Co=256
