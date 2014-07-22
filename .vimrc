@@ -88,6 +88,10 @@ function! NumberToggle()
   endif
 endfunc
 
+if has('mouse_sgr')
+  set ttymouse=sgr
+endif
+
 nnoremap <C-n> :call NumberToggle()<cr>
 
 " Load baller theme

@@ -5,15 +5,15 @@ echo    # move to a new line
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	rm -rf ~/.vim
-	rm -rf ~/.irssi
-	rm -rf ~/.vimrc
+  rm -rf ~/.vim
+  rm -rf ~/.irssi
+  rm -rf ~/.vimrc
 
-	ln -s ${PWD}/.vim ~/.vim
-	ln -s ${PWD}/.vimrc ~/.vimrc
-	cp -r ${PWD}/.irssi ~/.irssi
+  ln -s ${PWD}/.vim ~/.vim
+  ln -s ${PWD}/.vimrc ~/.vimrc
+  ln -s ${PWD}/.bash_profile ~/.bash_profile
+  cp -r ${PWD}/.irssi ~/.irssi
 
-	echo "YOU NEED TO SET YOUR IRSSI ACCOUNT PASSWORD (count not be directly linked due to personal information)\n";
-	echo "get all the submodules by running 'git submodule update --init'";
-	
+  echo "YOU NEED TO SET YOUR IRSSI ACCOUNT PASSWORD (count not be directly linked due to personal information)\n";
+  echo "get all the submodules by running 'git submodule update --init'";
 fi
