@@ -1,10 +1,4 @@
 export CLICOLOR=1
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/Users/zmattor/Downloads/gcc-arm-none-eabi-4_8-2014q2/bin:$PATH"
 
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias vim='/usr/local/Cellar/vim/7.4.335/bin/vim'
@@ -19,4 +13,10 @@ alias gc='git commit'
 alias rs='rails server'
 alias rc='rails console'
 
-export PATH=/usr/local/bin:$PATH
+# set paths
+export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# init rbenv
+eval "$(rbenv init -)"
