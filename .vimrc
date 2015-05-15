@@ -36,8 +36,6 @@ set tabstop=2
 set softtabstop=2
 set number
 set hlsearch
-"set wildmode=longest,list,full
-"set wildmenu
 set backspace=2
 
 " Show trailing whitespace
@@ -74,9 +72,6 @@ inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-" Start NERDTree
-" autocmd vimenter * NERDTree
-
 " Close if NERDTree is last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -93,6 +88,9 @@ if has('mouse_sgr')
 endif
 
 nnoremap <C-n> :call NumberToggle()<cr>
+
+" Ignore some folders
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Load baller theme
 source ~/.vim/colors/zenburn.vim
