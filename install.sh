@@ -18,4 +18,5 @@ then
 
   echo "YOU NEED TO SET YOUR IRSSI ACCOUNT PASSWORD (count not be directly linked due to personal information)\n";
   echo "get all the submodules by running 'git submodule update --init'";
+  echo "If you want tmuxinator - gem install tmuxinator";
 fi
