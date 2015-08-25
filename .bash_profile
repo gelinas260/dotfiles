@@ -6,13 +6,12 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -
 
 # programs
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias vim='/usr/local/Cellar/vim/7.4.335/bin/vim'
 alias tmux="TERM=screen-256color-bce tmux"
 alias redis="redis-server /usr/local/etc/redis.conf"
+alias ngrok-rails="ngrok http -subdomain=zack 3000"
 
 # ssh
 alias ec2='ssh -i ~/.ssh/ZackMac.pem ubuntu@ec2-54-226-121-215.compute-1.amazonaws.com'
-alias omttllc='ssh omttllcc@box1053.bluehost.com'
 alias irc='ssh zmattor@irc.zmattor.me -t "tmux a"'
 
 # git
@@ -23,8 +22,7 @@ alias gc='git commit'
 alias rs='rails server'
 alias rc='rails console'
 alias es='ember server --proxy http://localhost:3000'
-
-alias nw='/Applications/nwjs.app/Contents/MacOS/nwjs .'
+#alias nw='/Applications/nwjs.app/Contents/MacOS/nwjs .'
 
 # heroku
 
