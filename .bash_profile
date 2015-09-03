@@ -9,6 +9,7 @@ alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/serv
 alias tmux="TERM=screen-256color-bce tmux"
 alias redis="redis-server /usr/local/etc/redis.conf"
 alias ngrok-rails="ngrok http -subdomain=zack 3000"
+alias ngrok-ember="ngrok http -subdomain=zack 4200"
 
 # ssh
 alias ec2='ssh -i ~/.ssh/ZackMac.pem ubuntu@ec2-54-226-121-215.compute-1.amazonaws.com'
@@ -31,6 +32,8 @@ alias es='ember server --proxy http://localhost:3000'
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/Library/Android/sdk/platform-tools/:$PATH"
+export DISABLE_SPRING=1
 
 # init rbenv
 eval "$(rbenv init -)"
