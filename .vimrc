@@ -38,6 +38,9 @@ set number
 set hlsearch
 set backspace=2
 
+au BufNewFile,BufRead *.jbuilder set ft=ruby
+
+
 " Show trailing whitespace
 set listchars=trail:⋅
 set list
@@ -89,8 +92,10 @@ endif
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
-" Ignore some folders
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" CTRL-P Settings
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp\|bower_components'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_show_hidden = 1
 
 " Load baller theme
 source ~/.vim/colors/zenburn.vim
