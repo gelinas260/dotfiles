@@ -1,5 +1,5 @@
 "
-" /home/zmattor/.vimrc - Crriten's vimrc (inspired heavily from Leafy's)
+"  gelinas260's vimrc (inspired heavily from Criten's)
 "
 set noswapfile
 execute pathogen#infect()
@@ -17,6 +17,8 @@ set background=dark
 if has("autocmd")
   filetype plugin indent off
 endif
+
+filetype plugin on
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
@@ -37,6 +39,9 @@ set softtabstop=2
 set number
 set hlsearch
 set backspace=2
+set formatoptions=l
+set lbr
+set breakindent
 
 au BufNewFile,BufRead *.jbuilder set ft=ruby
 
@@ -48,7 +53,7 @@ set list
 if $TERM == "screen" || $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal" || 1
   set t_Co=256
 endif
- 
+
 " Tab controls
 nmap <C-h> :tabp<CR>
 nmap <C-l> :tabn<CR>
@@ -56,13 +61,13 @@ nmap <C-l> :tabn<CR>
 " Clear the search
 nmap <F8> :let @/=''<CR>
 
-" Escape a URL's ampersands. vi is used for editing commands inline, so 
+" Escape a URL's ampersands. vi is used for editing commands inline, so
 " this is useful if you are pasting a URL for command line wget
 nmap <F7> :%s/&/\\&/g<CR>
 
-" Backspace in normal mode is basically quit, but if this is the last window open 
-" and we accidentally close the window, we save session so that we can quickload 
-" all the open buffers if it was a mistake. 
+" Backspace in normal mode is basically quit, but if this is the last window open
+" and we accidentally close the window, we save session so that we can quickload
+" all the open buffers if it was a mistake.
 " nnoremap <BS> :mksession! ~/.vim_session<CR>:quit<CR>
 
 " Enter in normal mode is save. Pretty boss.
@@ -98,4 +103,6 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_show_hidden = 1
 
 " Load baller theme
-source ~/.vim/colors/zenburn.vim
+"source ~/.vim/colors/base16-bespin.vim
+
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
