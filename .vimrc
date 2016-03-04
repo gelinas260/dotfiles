@@ -18,37 +18,58 @@ if has("autocmd")
   filetype plugin indent off
 endif
 
+filetype indent on
 filetype plugin on
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-"set showcmd    " Show (partial) command in status line.
-set showmatch!    " Show matching brackets. // bug sharp braces...
-set ignorecase    " Do case insensitive matching
-set smartindent
-set incsearch   " Incremental search
-set autowrite   " Automatically save before commands like :next and :make
-set hidden             " Hide buffers when they are abandoned
-set mouse=a   " Enable mouse usage (all modes)
 
-set ruler     " Show ruler displaying line number and col number and progress bottom right
+" Show (partial) command in status line.
+"set showcm
+"
+" Show matching brackets. // bug sharp braces
+set showmatch!
+
+" Do case insensitive matching
+set ignorecase
+
+" Incremental search
+set incsearch
+
+" Automatically save before commands like :next and :make
+set autowrite
+
+" Hide buffers when they are abandoned
+set hidden
+
+" Enable mouse usage (all modes)
+set mouse=a
+
+" Show ruler displaying line number and col number and progress bottom right
+set ruler
+
+set shiftround
+set smartindent
+set autoindent
 set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
+
 set number
 set hlsearch
 set backspace=2
-set formatoptions=l
-set lbr
-set breakindent
+set formatoptions+=l
 
 au BufNewFile,BufRead *.jbuilder set ft=ruby
+au FileType html setl sw=2 sts=2 et
 
 
 " Show trailing whitespace
 set listchars=trail:⋅
 set list
+
+let delimitMate_expand_cr = 1
 
 if $TERM == "screen" || $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal" || 1
   set t_Co=256
