@@ -2,7 +2,41 @@
 "  gelinas260's vimrc (inspired heavily from Criten's)
 "
 set noswapfile
-execute pathogen#infect()
+
+" Plugins!
+call plug#begin('~/.vim/plugged')
+
+" Themes
+Plug 'altercation/vim-colors-solarized'
+
+" Editing Enhancements
+Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+
+" Autocompletion / Snippets
+Plug 'garbas/vim-snipmate' | Plug 'tomtom/tlib_vim' | Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'Raimondi/delimitMate'
+Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-endwise'
+
+" File Utilities
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" Interface / Language Support
+Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-css-color'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'sheerun/vim-polyglot'
+Plug 'tmhedberg/matchit'
+Plug 'tpope/vim-fugitive'
+
+" Testing / Syntax Checking
+Plug 'scrooloose/syntastic'
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
