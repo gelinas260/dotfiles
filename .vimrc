@@ -1,13 +1,12 @@
 "
 "  gelinas260's vimrc (inspired heavily from Criten's)
 "
-set noswapfile
 
 " Plugins!
 call plug#begin('~/.vim/plugged')
 
 " Themes
-Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 
 " Editing Enhancements
 Plug 'scrooloose/nerdcommenter'
@@ -40,70 +39,9 @@ Plug 'scrooloose/syntastic'
 
 call plug#end()
 
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
-syntax on
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
+" Colorscheme
+colorscheme base16-bespin
 set background=dark
-
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-if has("autocmd")
-  filetype plugin indent off
-endif
-
-filetype indent on
-filetype plugin on
-
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-
-" Show (partial) command in status line.
-"set showcm
-"
-" Show matching brackets. // bug sharp braces
-set showmatch!
-
-" Do case insensitive matching
-set ignorecase
-
-" Incremental search
-set incsearch
-
-" Automatically save before commands like :next and :make
-set autowrite
-
-" Hide buffers when they are abandoned
-set hidden
-
-" Enable mouse usage (all modes)
-set mouse=a
-
-" Show ruler displaying line number and col number and progress bottom right
-set ruler
-
-set shiftround
-set smartindent
-set autoindent
-set expandtab
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
-
-set number
-set hlsearch
-set backspace=2
-set formatoptions+=l
-
-au BufNewFile,BufRead *.jbuilder set ft=ruby
-au FileType html setl sw=2 sts=2 et
-
-
-" Show trailing whitespace
-set listchars=trail:⋅
-set list
 
 let delimitMate_expand_cr = 1
 
@@ -137,6 +75,10 @@ inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
+" Remap ; to : (helpful if you forget SHIFT when attempting to enter command
+" mode
+nnoremap ; :
+
 " Close if NERDTree is last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -159,7 +101,45 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp\|bower_components'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_show_hidden = 1
 
-" Load baller theme
-"source ~/.vim/colors/base16-bespin.vim
-
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
+
+" Settings
+set smartindent
+set autoindent
+set number
+set ruler
+set rulerformat=%-14.(%l,%c%V%)\ %P
+set modelines=0
+syntax enable
+
+"set nowrap
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set list
+set backspace=indent,eol,start
+
+set showmode
+set showcmd
+
+set listchars=""
+set listchars+=tab:\ \
+set listchars+=trail:.
+set listchars+=extends:>
+set listchars+=precedes:<
+
+set colorcolumn=85
+
+if has("autocmd")
+  filetype indent on
+endif
+
+" Searching
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set gdefault
+set smartcase
