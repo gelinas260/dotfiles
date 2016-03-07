@@ -38,6 +38,8 @@ Plug 'tpope/vim-fugitive'
 " Testing / Syntax Checking
 Plug 'scrooloose/syntastic'
 
+call plug#end()
+
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 syntax on
